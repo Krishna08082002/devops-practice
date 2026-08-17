@@ -27,3 +27,7 @@ jobs:
       - name: Run tests
         run: |
           python -m unittest discover -s tests -p "test_*.py" -v
+
+      - name: Build Docker image
+        run: |
+          docker build -t devops-practice:latest .
