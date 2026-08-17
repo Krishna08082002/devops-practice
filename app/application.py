@@ -14,7 +14,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(message.encode())
 
         elif self.path == "/health":
-            message = "NOT OK"
+            message = "OK"
 
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
