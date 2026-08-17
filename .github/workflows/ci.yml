@@ -31,3 +31,24 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t devops-practice:latest .
+            - name: Run Docker container
+        run: |
+          docker run -d --name devops-practice -p 8000:8000 devops-practice:latest
+
+      - name: Wait for application
+        run: |
+          sleep 3
+
+      - name: Check application health
+        run: |
+          curl --fail http://localhost:8000/health
+
+      - name: Show container logs
+        if: always()
+        run: |
+          docker logs devops-practice
+
+      - name: Stop Docker container
+        if: always()
+        run: |
+          docker stop devops-practice
