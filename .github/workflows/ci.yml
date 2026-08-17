@@ -31,7 +31,8 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t devops-practice:latest .
-            - name: Run Docker container
+
+      - name: Run Docker container
         run: |
           docker run -d --name devops-practice -p 8000:8000 devops-practice:latest
 
