@@ -1,5 +1,5 @@
+import os
 from http.server import BaseHTTPRequestHandler, HTTPServer
-
 
 class RequestHandler(BaseHTTPRequestHandler):
 
@@ -26,10 +26,10 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.send_response(404)
             self.end_headers()
 
+PORT = int(os.environ.get("PORT", "8000"))
 
-server = HTTPServer(("0.0.0.0", 8000), RequestHandler)
-
+server = HTTPServer(("0.0.0.0", PORT), RequestHandler)
 
 if __name__ == "__main__":
-    print("Server running on port 8000...")
+    print(f"Server running on port {PORT}...")
     server.serve_forever()
