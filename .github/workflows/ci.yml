@@ -8,17 +8,16 @@ on:
   pull_request:
     branches:
       - main
-  permissions:
+
+permissions:
   contents: read
   packages: write
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -56,6 +55,7 @@ jobs:
         if: always()
         run: |
           docker stop devops-practice
+
       - name: Login to GitHub Container Registry
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
