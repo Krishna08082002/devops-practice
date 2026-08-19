@@ -5,7 +5,7 @@ class RequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == "/":
-            message = "DevOps application v2 is running........"
+            message = "DevOps application v2 is running!"
 
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")

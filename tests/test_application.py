@@ -27,7 +27,7 @@ class TestApplication(unittest.TestCase):
         body = response.read().decode()
 
         self.assertEqual(response.status, 200)
-        self.assertEqual(body, "DevOps application is running!")
+        self.assertEqual(body, "DevOps application v2 is running!")
 
         connection.close()
 
